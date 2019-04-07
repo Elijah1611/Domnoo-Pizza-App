@@ -1,12 +1,11 @@
 import Vue from "vue";
+import './plugins/vuetify'
 import App from "./App.vue";
 import store from "./store";
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 
-import { MdButton, MdDrawer } from "vue-material/dist/components";
-import "vue-material/dist/vue-material.min.css";
-
-Vue.use(MdButton);
-Vue.use(MdDrawer);
+Vue.use(Vuetify);
 
 new Vue({
 	store,
