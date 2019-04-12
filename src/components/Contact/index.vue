@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-layout row wrap>
-      <v-flex xs12 md6 offset-md3 class="mb-3">
+      <v-flex xs12 md6 offset-md3 class="mb-3" id="contact">
         <appCallCard></appCallCard>
       </v-flex>
-      <v-flex xs12 md6 offset-md3>
+      <v-flex xs12 md6 offset-md3 id="location">
         <appLocationCard></appLocationCard>
       </v-flex>
     </v-layout>

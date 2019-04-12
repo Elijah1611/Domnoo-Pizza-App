@@ -7,6 +7,15 @@ Vue.use(Router);
 export default new Router({
 	mode: "history",
 	base: process.env.BASE_URL,
+	scrollBehavior(to) {
+		if (to.hash) {
+			return { selector: to.hash };
+		}
+		return {
+			x: 0,
+			y: 0
+		};
+	},
 	routes: [
 		{
 			path: "/",
@@ -14,20 +23,14 @@ export default new Router({
 			component: Home
 		},
 		{
-			path: "/contact",
-			name: "home",
-			component: Home
-		},
-		{
-			path: "/location",
-			name: "home",
-			component: Home
-		},
-		{
 			path: "/menu",
 			name: "menu",
-
 			component: () => import("./views/Menu.vue")
+		},
+		{
+			path: "*",
+			name: "404",
+			component: Home
 		}
 	]
 });

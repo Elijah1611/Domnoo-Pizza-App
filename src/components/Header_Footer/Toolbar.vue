@@ -14,7 +14,13 @@
 
     <v-navigation-drawer app right dark v-model="drawer" class="drawer-styles">
       <v-list class="bck-disable">
-        <v-list-tile v-for="item in items" :key="item.title" :to="item.link" active-class="red ">
+        <v-list-tile
+          v-for="item in items"
+          :key="item.title"
+          :to="{name: item.link, hash: item.hash}"
+          exact
+          active-class="red "
+        >
           <v-list-tile-action>
             <v-icon large>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -139,10 +145,15 @@ export default {
       drawer: false,
       dialog: false,
       items: [
-        { icon: "home", title: "Home", link: "/" },
-        { icon: "call", title: "Contact", link: "/contact" },
-        { icon: "store", title: "Location", link: "/location" },
-        { icon: "local_pizza", title: "Menu", link: "/menu" }
+        { icon: "home", title: "Home", link: "home", hash: "" },
+        { icon: "call", title: "Contact", link: "home", hash: "#contact" },
+        {
+          icon: "store",
+          title: "Location",
+          link: "home",
+          hash: "#location"
+        },
+        { icon: "local_pizza", title: "Menu", link: "menu", hash: "" }
       ]
     };
   },
