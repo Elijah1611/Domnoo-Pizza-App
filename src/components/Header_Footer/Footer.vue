@@ -6,8 +6,16 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn v-for="icon in icons" :key="icon" class="mx-3" dark icon>
-          <v-icon size="24px">{{ icon }}</v-icon>
+        <v-btn
+          v-for="(icon, i) in social"
+          :key="i"
+          class="mx-3"
+          dark
+          icon
+          :href="icon.link"
+          target="_blank"
+        >
+          <v-icon size="24px">{{ icon.icon }}</v-icon>
         </v-btn>
       </v-card-title>
 
@@ -24,11 +32,11 @@ export default {
   name: "Footer",
   data() {
     return {
-      icons: [
-        "fab fa-facebook",
-        "fab fa-twitter",
-        "fab fa-google-plus",
-        "fab fa-instagram"
+      social: [
+        { icon: "fab fa-facebook", link: "https://www.facebook.com/" },
+        { icon: "fab fa-twitter", link: "https://twitter.com/" },
+        { icon: "fab fa-google-plus", link: "https://www.google.com/" },
+        { icon: "fab fa-instagram", link: "https://www.instagram.com" }
       ]
     };
   }

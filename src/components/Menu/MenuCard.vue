@@ -20,7 +20,7 @@
             slot-scope="{ hover }"
             :class="`elevation-${hover ? 12 : 2}`"
             color="error"
-            @click="addToCart({kind, price, desc, cardImg, id})"
+            @click="addToCart({kind, price, desc, cardImg, id: uuid()})"
           >Add To Order</v-btn>
         </v-hover>
       </v-card-actions>
@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import uuid from "uuid/v4";
 export default {
   name: "MenuCard",
   props: {
@@ -47,16 +49,15 @@ export default {
     cardImg: {
       type: String,
       required: true
-    },
-    id: {
-      type: Number,
-      required: true
     }
   },
+  data() {
+    return {
+      uuid
+    };
+  },
   methods: {
-    addToCart(item) {
-      this.$emit("add-to-cart", item);
-    }
+    ...mapMutations(["addToCart"])
   }
 };
 </script>

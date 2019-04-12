@@ -1,5 +1,5 @@
 <template>
-  <v-carousel>
+  <v-carousel max>
     <v-carousel-item v-for="(slide,i) in slides" :key="i" :src="slide.bck">
       <div class="slider-container">
         <div class="text">{{slide.text}}</div>
@@ -50,8 +50,9 @@ export default {
 .slider-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
+  height: 100%;
   margin-top: 1.5rem;
 
   .text {
@@ -71,7 +72,10 @@ export default {
   }
 
   img {
-    width: 200px;
+    width: 180px;
+    @media only screen and (min-width: 768px) {
+      width: 250px;
+    }
   }
 }
 </style>
