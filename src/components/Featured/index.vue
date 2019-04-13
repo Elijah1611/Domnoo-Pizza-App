@@ -59,22 +59,24 @@ export default {
     text-align: center;
     font-family: "Monoton", sans-serif;
     color: #fff;
-    // font-size: 8rem;
     font-size: 2rem;
-    // line-height: 10rem;
-    line-height: 1.7em;
+    line-height: 1em;
     letter-spacing: 0.2rem;
     word-spacing: 0.3rem;
-    // width: 50%;
     width: 75%;
     margin-top: 5rem;
     margin-bottom: 1em;
+    @media only screen and (min-width: 768px) {
+      margin-bottom: 0.5em;
+      font-size: 3rem;
+      line-height: 1em;
+    }
   }
 
   img {
     width: 180px;
     @media only screen and (min-width: 768px) {
-      width: 250px;
+      width: 280px;
     }
   }
 }
